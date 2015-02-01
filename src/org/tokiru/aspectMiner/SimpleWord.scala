@@ -1,7 +1,12 @@
 package org.tokiru.aspectMiner
 
-class SimpleWord(word: String) {
-  def value: String = word
+import edu.stanford.nlp.ling.HasWord
 
-  override def toString: String = word
+class SimpleWord(value: String) extends HasWord {
+
+  override def toString: String = value
+
+  override def word(): String = value
+
+  override def setWord(word: String): Unit = ???
 }

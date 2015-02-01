@@ -7,5 +7,5 @@ class Word(taggedWord: TaggedWord, aspect: Boolean) {
   def tag: String = taggedWord.tag()
   def isAspect: Boolean = aspect
 
-  override def toString() = value + " " + tag + " " + isAspect
+  override def toString() = "(" + value + " " + tag + " " + isAspect + ")"
 }

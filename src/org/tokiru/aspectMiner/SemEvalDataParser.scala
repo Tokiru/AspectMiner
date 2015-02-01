@@ -8,7 +8,6 @@ object SemEvalDataParser extends DataParser {
 
   override def parseData(path: String): List[List[(SimpleWord, Boolean)]] = {
     val xmlData = XML.loadFile(path)
-    //println(xmlData)
     for (sentence <- xmlData \\ "sentence") yield {
       val aspectsXML = sentence \\ "aspectTerms"
 
@@ -17,8 +16,6 @@ object SemEvalDataParser extends DataParser {
           (aspectXML \ "@term").text.split(REGEX).toList
 
          }).toList.flatten
-
-      println(aspects)
 
       for (word <- ((sentence \\ "text").text).split(REGEX)) yield {
         (new SimpleWord(word), aspects.exists(_==word))
